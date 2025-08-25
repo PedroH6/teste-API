@@ -1,7 +1,7 @@
 /// <reference types="cypress"/>
 import contratoProdutos from '../contratos/produtos.contratos.js';
 
-describe("Teste de API em produtos", () => {
+describe("Teste de API - Produtos", () => {
   let token;
   beforeEach(() => {
     cy.token("fulano@qa.com", "teste").then((tkn) => {

@@ -24,6 +24,8 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+
+
 Cypress.Commands.add('token', (email, senha) => {
     cy.request({
     method: 'POST',
@@ -50,4 +52,18 @@ Cypress.Commands.add('cadastrarProduto', (token, produto, preco, descricao, quan
       },
       failOnStatusCode: false
     })
+})
+
+Cypress.Commands.add('cadastrarUsuario', (nome, email, senha, administrador) => {
+  cy.request({
+    method: "POST",
+    url: "usuarios",
+    body: {
+      "nome": nome,
+      "email": email,
+      "password": senha,
+      "administrador": administrador
+    },
+    failOnStatusCode: false
+  })
 })
